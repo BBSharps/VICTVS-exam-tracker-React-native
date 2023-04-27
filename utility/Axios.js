@@ -10,13 +10,14 @@ export const getCandidates = () => {
   });
 };
 export const getExams = (id, location, date, order) => {
+  let dateOrder = order === "Newest" ? "desc" : "asc";
   let request = `/exams?id=${id}`;
-  if (location !== undefined) {
+  if (location !== "All") {
     request += `&location=${location}`;
   }
-  date !== undefined
+  date !== "**/**/****"
     ? (request += `&date=${date}`)
-    : (request += `&order=${order}`);
+    : (request += `&order=${dateOrder}`);
   return api.get(request).then((response) => {
     return response.data.exams;
   });
