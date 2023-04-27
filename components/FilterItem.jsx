@@ -1,17 +1,16 @@
-import { View, Text, StyleSheet, TextInput, Button } from "react-native";
-import React, { useState } from "react";
-import { useEffect } from "react";
-import { getCandidates } from "../utility/Axios";
+import { View, Text, StyleSheet, Button } from "react-native";
+import React from "react";
+
 import { light, dark, pink_grey } from "./colors";
 
 function FilterItem({ text, filterData, setFilterMenu, filterList }) {
   return (
-    <View>
+    <View style={styles.Exams_item}>
       <Text style={styles.Exams_item_text}>{text}</Text>
       <View style={styles.Exams_item_button}>
         <Button
           title={filterData}
-          color={light}
+          color={dark}
           onPress={(e) => {
             setFilterMenu(filterList);
           }}
@@ -31,8 +30,10 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderStyle: "solid",
     margin: 5,
+    color: dark,
   },
   Exams_item_text: {
     alignSelf: "center",
+    color: dark,
   },
 });

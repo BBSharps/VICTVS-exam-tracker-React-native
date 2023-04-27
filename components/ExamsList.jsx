@@ -17,17 +17,25 @@ function ExamsList({ exams, setClickedExam }) {
                     setClickedExam(exam);
                   }}
                 >
-                  <Text>{exam.title}</Text>
-                  <Text>{exam.description}</Text>
-                  <Text>{`${exam.date} ${exam.time} `}</Text>
-                  <Text>{exam.location_name}</Text>
+                  <Text style={styles.ExamsList_list_item_text}>
+                    {exam.title}
+                  </Text>
+                  <Text style={styles.ExamsList_list_item_text}>
+                    {exam.description}
+                  </Text>
+                  <Text
+                    style={styles.ExamsList_list_item_text}
+                  >{`${exam.date} ${exam.time} `}</Text>
+                  <Text style={styles.ExamsList_list_item_text}>
+                    {exam.location_name}
+                  </Text>
                 </View>
               );
             })
           ) : (
             <View style={styles.ExamsList_list_item}>
-              <Text>No</Text>
-              <Text>Exams</Text>
+              <Text style={styles.ExamsList_list_item_text}>No</Text>
+              <Text style={styles.ExamsList_list_item_text}>Exams</Text>
             </View>
           )}
           <View style={styles.ExamsList_list_spacer} key="1"></View>
@@ -43,7 +51,7 @@ const styles = StyleSheet.create({
   ExamsList: {
     width: "90%",
     marginTop: 80,
-
+    backgroundColor: dark,
     flexDirection: "row",
   },
   ExamsList_list: {
@@ -68,5 +76,8 @@ const styles = StyleSheet.create({
   ExamsList_list_scroll: {
     height: "100%",
     marginLeft: 170,
+  },
+  ExamsList_list_item_text: {
+    color: light,
   },
 });

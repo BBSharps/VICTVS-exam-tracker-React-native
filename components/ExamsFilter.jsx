@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Button } from "react-native";
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { light, dark, pink_grey } from "./colors";
+import { light, dark, pink_grey, grey } from "./colors";
 import { getExams } from "../utility/Axios";
 import FilterItem from "./FilterItem";
 
@@ -68,7 +68,7 @@ function ExamsFilter({ candidate, setExams }) {
           <View style={styles.Exams_filter_button}>
             <Button
               title="Filter"
-              color={light}
+              color={dark}
               onPress={(e) => {
                 setFilter(!filter);
               }}
@@ -83,7 +83,7 @@ function ExamsFilter({ candidate, setExams }) {
               <View key={filter} style={styles.Exams_date_button}>
                 <Button
                   title={filter}
-                  color={light}
+                  color={dark}
                   onPress={(e) => {
                     if (dates.includes(filter)) {
                       setFilterDate(filter);
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     width: 150,
     padding: 10,
     height: 265,
-    backgroundColor: pink_grey,
+    backgroundColor: grey,
     justifyContent: "flex-start",
     borderRightWidth: 1,
     borderBottomWidth: 1,
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
     width: 150,
     padding: 10,
     minHeight: 265,
-    backgroundColor: pink_grey,
+    backgroundColor: grey,
     justifyContent: "flex-start",
     borderRightWidth: 1,
     borderBottomWidth: 1,
@@ -143,6 +143,7 @@ const styles = StyleSheet.create({
     borderRightWidth: 1,
     borderBottomWidth: 1,
     borderStyle: "solid",
+    margin: 2,
   },
   Exams_date_text: {
     alignSelf: "center",
