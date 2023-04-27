@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { getCandidates } from "../utility/Axios";
 import { light, dark, pink_grey } from "./colors";
+
 function Home({ setCandidate }) {
   useEffect(() => {
     getCandidates()
@@ -65,6 +66,7 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     position: "absolute",
     top: 130,
+    left: "15%",
   },
   text: {
     alignSelf: "center",

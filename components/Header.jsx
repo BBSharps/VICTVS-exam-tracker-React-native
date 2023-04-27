@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     borderBottomWidth: 3,
     borderStyle: "solid",
+    zIndex: 10,
   },
   text: {
     alignSelf: "center",
