@@ -14,7 +14,7 @@ function Home({ setCandidate }) {
   });
   const [name, onChangeName] = React.useState("");
   const [number, onChangeNumber] = React.useState();
-  const [candidates, setCandidates] = useState();
+  const [candidates, setCandidates] = useState([]);
   return (
     <View style={styles.Login}>
       <Text style={styles.text}>Welcome candidate please log in</Text>
@@ -38,6 +38,7 @@ function Home({ setCandidate }) {
           title="Log in"
           color={dark}
           onPress={(e) => {
+            console.log(candidates);
             if (number < candidates.length) {
               if (
                 Number(number) === candidates[number].candidate_id &&
