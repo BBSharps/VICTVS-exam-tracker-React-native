@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Button } from "react-native";
-import { light, dark, pink_grey } from "./colors";
+import { light, dark, pink_grey, grey } from "./colors";
 
-function Header({ candidate, setCandidate }) {
+function Header({ candidate, setCandidate, setClickedExam }) {
   return (
     <View style={styles.Header}>
       <Text style={styles.text}>Exam Day</Text>
@@ -12,6 +12,7 @@ function Header({ candidate, setCandidate }) {
             color={dark}
             title="Log out"
             onPress={(e) => {
+              setClickedExam(false);
               setCandidate({ candidate_name: undefined });
             }}
           ></Button>
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
     left: 0,
     width: "100%",
     height: 80,
-    backgroundColor: pink_grey,
+    backgroundColor: grey,
     justifyContent: "flex-end",
     borderBottomWidth: 3,
     borderStyle: "solid",

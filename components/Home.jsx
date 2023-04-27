@@ -39,7 +39,6 @@ function Home({ setCandidate }) {
           color={dark}
           onPress={(e) => {
             if (number < candidates.length) {
-              console.log(number, name);
               if (
                 Number(number) === candidates[number].candidate_id &&
                 name === candidates[number].candidate_name

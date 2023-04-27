@@ -15,8 +15,12 @@ export default function App() {
   const [exams, setExams] = useState([]);
   const [clickedExam, setClickedExam] = useState(false);
   return (
-    <View style={styles.container} contentContainerStyle={{ flex: 1 }}>
-      <Header candidate={candidate} setCandidate={setCandidate} />
+    <View style={styles.container}>
+      <Header
+        candidate={candidate}
+        setCandidate={setCandidate}
+        setClickedExam={setClickedExam}
+      />
       {candidate.candidate_name === undefined ? null : (
         <ExamsList exams={exams} setClickedExam={setClickedExam}></ExamsList>
       )}
@@ -27,11 +31,17 @@ export default function App() {
       )}
       {clickedExam ? (
         <View style={styles.clickedExam}>
-          <Text>{clickedExam.title}</Text>
-          <Text>{clickedExam.description}</Text>
-          <Text>{`${clickedExam.date} ${clickedExam.time} `}</Text>
-          <Text>{clickedExam.location_name}</Text>
-          <Text>{`${clickedExam.latitude} , ${clickedExam.longitude}`}</Text>
+          <Text style={styles.clickedExam_txt}>{clickedExam.title}</Text>
+          <Text style={styles.clickedExam_txt}>{clickedExam.description}</Text>
+          <Text
+            style={styles.clickedExam_txt}
+          >{`${clickedExam.date} ${clickedExam.time} `}</Text>
+          <Text style={styles.clickedExam_txt}>
+            {clickedExam.location_name}
+          </Text>
+          <Text
+            style={styles.clickedExam_txt}
+          >{`${clickedExam.latitude} , ${clickedExam.longitude}`}</Text>
         </View>
       ) : null}
       <StatusBar style="auto" />
@@ -41,7 +51,9 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: light,
+    backgroundColor: dark,
+    height: "100%",
+    width: "100%",
   },
   clickedExam: {
     position: "absolute",
@@ -49,10 +61,13 @@ const styles = StyleSheet.create({
     width: "82%",
     bottom: 10,
     left: "9%",
-    backgroundColor: pink_grey,
+    backgroundColor: "#86577D",
     zIndex: 10,
     padding: 20,
     borderRightWidth: 1,
     borderBottomWidth: 1,
+  },
+  clickedExam_txt: {
+    color: light,
   },
 });
