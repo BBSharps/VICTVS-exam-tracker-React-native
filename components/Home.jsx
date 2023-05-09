@@ -38,7 +38,6 @@ function Home({ setCandidate }) {
           title="Log in"
           color={dark}
           onPress={(e) => {
-            console.log(candidates);
             if (number < candidates.length) {
               if (
                 Number(number) === candidates[number].candidate_id &&
